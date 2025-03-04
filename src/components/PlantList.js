@@ -1,10 +1,18 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList() {
+function PlantList({ plants, onToggleStock }) {
   return (
-    <ul className="cards">{/* render PlantCards components in here */}</ul>
+    <ul className="cards">
+      {plants.map((plant) => (
+        <PlantCard key={plant.id} {...plant} onToggleStock={onToggleStock} />
+      ))}
+    </ul>
   );
 }
 
 export default PlantList;
+
+
+
+
